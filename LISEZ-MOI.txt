@@ -1,0 +1,20 @@
+VIDEO BOOTH — ABEL — JUNGLE PREMIUM
+
+Cette version reprend l’ambiance de la carte de référence :
+- fond crème texturé ;
+- grand chiffre 1 en filigrane ;
+- ballons terracotta, kaki et ivoire ;
+- confettis dorés et olive ;
+- animaux jungle regroupés sous le texte ;
+- grande photo ronde ;
+- texte « Laissez un message pour Abel » ;
+- bouton « Commencer ».
+
+Le design est original et inspiré de la palette et de l’ambiance générale de la carte.
+
+ESPACE PRIVÉ
+Appuyez 5 fois rapidement dans le coin inférieur droit.
+
+GITHUB PAGES
+Importez tous les fichiers et le dossier assets à la racine du dépôt, puis :
+Settings > Pages > Deploy from a branch > main > /(root).

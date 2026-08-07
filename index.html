@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+  <meta name="theme-color" content="#fffdfb">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="stylesheet" href="style.css?v=premium1">
+  <title>Abel — Jungle Premium</title>
+</head>
+<body class="theme-jungle">
+  <main class="app">
+    <section class="shell">
+      <section id="screen-home" class="screen active">
+        <div class="home premium-jungle-home">
+          <img class="premium-number-one" src="assets/premium-number-one.svg" alt="">
+          <img class="premium-balloons balloons-left" src="assets/premium-balloons.svg" alt="">
+          <img class="premium-balloons balloons-right" src="assets/premium-balloons.svg" alt="">
+          <img class="premium-confetti" src="assets/premium-confetti.svg" alt="">
+          <div class="premium-content">
+            <div class="photo-frame premium-photo-frame">
+              <img id="home-photo" src="assets/placeholder.svg" alt="Photo d’Abel">
+            </div>
+            <h1 class="home-title premium-title">
+              Laissez un message
+              <span id="home-name">pour Abel</span>
+            </h1>
+            <img class="premium-animals" src="assets/premium-animals.svg" alt="">
+            <button id="start-button" class="button primary premium-button">Commencer</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="screen-camera" class="screen">
+        <div class="screen-heading">
+          <span class="eyebrow">Message vidéo</span>
+          <h2>Regardez l’objectif et souriez</h2>
+        </div>
+        <div class="video-wrap">
+          <video id="live-video" autoplay muted playsinline></video>
+          <div id="countdown" class="countdown hidden">3</div>
+        </div>
+        <div class="record-status">
+          <span class="record-dot"></span>
+          <strong id="timer">00:00</strong>
+        </div>
+        <button id="stop-button" class="button danger">Terminer</button>
+        <p id="camera-error" class="error"></p>
+      </section>
+
+      <section id="screen-review" class="screen">
+        <div class="screen-heading">
+          <span class="eyebrow">Aperçu</span>
+          <h2>Souhaitez-vous garder cette vidéo ?</h2>
+        </div>
+        <div class="video-wrap">
+          <video id="review-video" controls playsinline></video>
+        </div>
+        <div class="button-row">
+          <button id="redo-button" class="button secondary">Recommencer</button>
+          <button id="save-button" class="button primary">Valider</button>
+        </div>
+      </section>
+
+      <section id="screen-thanks" class="screen">
+        <div class="thanks">
+          <div class="heart">♡</div>
+          <h2>Merci !</h2>
+          <p>Votre message a bien été enregistré pour Abel.</p>
+          <button id="home-button" class="button secondary">Retour à l’accueil</button>
+        </div>
+      </section>
+
+      <section id="screen-admin" class="screen">
+        <div class="admin">
+          <span class="eyebrow">Espace privé</span>
+          <h2>Réglages et vidéos</h2>
+
+          <div class="tabs">
+            <button class="tab active" data-panel="panel-settings">Réglages</button>
+            <button class="tab" data-panel="panel-videos">Vidéos</button>
+            <button class="tab" data-panel="panel-actions">Actions</button>
+          </div>
+
+          <div id="panel-settings" class="panel active">
+            <label class="field">
+              <span>Prénom</span>
+              <input id="name-input" type="text" value="Abel" maxlength="30">
+            </label>
+
+            <div class="photo-settings">
+              <img id="admin-photo" src="assets/placeholder.svg" alt="Aperçu photo">
+              <div>
+                <strong>Photo d’accueil</strong>
+                <p>Choisissez une photo depuis l’iPad. Elle sera automatiquement centrée dans le cercle.</p>
+                <label class="button primary upload-label">
+                  Choisir une photo
+                  <input id="photo-input" type="file" accept="image/*" hidden>
+                </label>
+                <button id="remove-photo-button" class="button secondary small">Retirer la photo</button>
+              </div>
+            </div>
+
+            <button id="save-settings-button" class="button primary">Enregistrer</button>
+            <p id="settings-message" class="notice"></p>
+          </div>
+
+          <div id="panel-videos" class="panel">
+            <p class="center"><strong id="video-count">0</strong> vidéo</p>
+            <div id="video-gallery" class="gallery"></div>
+          </div>
+
+          <div id="panel-actions" class="panel">
+            <button id="download-all-button" class="action-card">
+              <strong>Télécharger toutes les vidéos</strong>
+              <small>Lance les téléchargements une par une.</small>
+            </button>
+            <button id="delete-all-button" class="action-card">
+              <strong>Supprimer toutes les vidéos</strong>
+              <small>La photo et le prénom seront conservés.</small>
+            </button>
+            <button id="reset-button" class="action-card danger-card">
+              <strong>Réinitialiser l’événement</strong>
+              <small>Efface les vidéos, la photo et les réglages.</small>
+            </button>
+            <p id="actions-message" class="notice"></p>
+          </div>
+
+          <button id="close-admin-button" class="button secondary">Fermer l’espace privé</button>
+        </div>
+      </section>
+
+      <button id="admin-hotspot" class="admin-hotspot" aria-label="Ouvrir l’espace privé"></button>
+    </section>
+  </main>
+
+  <div id="confirm-modal" class="modal hidden">
+    <div class="modal-card">
+      <h3 id="confirm-title">Confirmation</h3>
+      <p id="confirm-text"></p>
+      <div class="button-row">
+        <button id="cancel-confirm-button" class="button secondary">Annuler</button>
+        <button id="confirm-action-button" class="button danger">Confirmer</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js?v=premium1"></script>
+</body>
+</html>
